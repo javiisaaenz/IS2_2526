@@ -1,0 +1,11 @@
+/home/hugo/Universidad/Tercer Curso Segundo Cuatri/Software II/practicas/s/IS2_2526/SegurosCommon/src/main/java/es/unican/is2/App.java
+/home/hugo/Universidad/Tercer Curso Segundo Cuatri/Software II/practicas/s/IS2_2526/SegurosCommon/src/main/java/es/unican/is2/Cliente.java
+/home/hugo/Universidad/Tercer Curso Segundo Cuatri/Software II/practicas/s/IS2_2526/SegurosCommon/src/main/java/es/unican/is2/Cobertura.java
+/home/hugo/Universidad/Tercer Curso Segundo Cuatri/Software II/practicas/s/IS2_2526/SegurosCommon/src/main/java/es/unican/is2/DataAccessException.java
+/home/hugo/Universidad/Tercer Curso Segundo Cuatri/Software II/practicas/s/IS2_2526/SegurosCommon/src/main/java/es/unican/is2/IClientesDAO.java
+/home/hugo/Universidad/Tercer Curso Segundo Cuatri/Software II/practicas/s/IS2_2526/SegurosCommon/src/main/java/es/unican/is2/IGestionClientes.java
+/home/hugo/Universidad/Tercer Curso Segundo Cuatri/Software II/practicas/s/IS2_2526/SegurosCommon/src/main/java/es/unican/is2/IGestionSeguros.java
+/home/hugo/Universidad/Tercer Curso Segundo Cuatri/Software II/practicas/s/IS2_2526/SegurosCommon/src/main/java/es/unican/is2/IInfoSeguros.java
+/home/hugo/Universidad/Tercer Curso Segundo Cuatri/Software II/practicas/s/IS2_2526/SegurosCommon/src/main/java/es/unican/is2/ISegurosDAO.java
+/home/hugo/Universidad/Tercer Curso Segundo Cuatri/Software II/practicas/s/IS2_2526/SegurosCommon/src/main/java/es/unican/is2/OperacionNoValida.java
+/home/hugo/Universidad/Tercer Curso Segundo Cuatri/Software II/practicas/s/IS2_2526/SegurosCommon/src/main/java/es/unican/is2/Seguro.java
