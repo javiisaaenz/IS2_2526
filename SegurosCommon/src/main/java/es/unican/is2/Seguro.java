@@ -115,8 +115,46 @@ public class Seguro {
 	 * @return El precio del seguro
 	 *         0 si el seguro todavía no está en vigor (no se ha alcanzado su fecha de inicio)
      */
-	public double precio() {
-		return 0;
+	public double precio(Cliente c) {
+		if (fechaInicio == null || fechaInicio.isAfter(LocalDate.now())) {
+       		return 0.0;
+   	 	}
+    
+    	double precio;
+		//precio segun la cobertura
+    	switch (cobertura) {
+      	  	case TERCEROS:
+        	    precio = 400.0;
+        	    break;
+      	  	case TERCEROS_LUNAS:
+        	    precio = 600.0;
+            	break;
+        	case TODO_RIESGO:
+            	precio = 1000.0;
+            	break;
+        	default:
+            	precio = 0.0;
+   		 }
+		//aumento segun la potencia del coche
+		double mult = 1.0;
+		if (90 <= potencia && potencia <= 110) {
+    		mult = 1.05;
+		}
+		else if (potencia > 110) {
+			mult = 1.20;
+		}
+		//descuento segun si la oferta está activa
+		int añosVigor = LocalDate.now().getYear() - fechaInicio.getYear();
+		if (añosVigor < 1) {
+			mult -= 0.2;
+		}
+		double precioTotal = precio * mult;	
+		if (c.getMinusvalia()) {
+			return (precio*mult)* 0.75;
+		}
+		return precio * mult;
 	}
+
+	
 	
 }

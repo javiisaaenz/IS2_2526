@@ -1,3 +1,4 @@
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -77,7 +78,21 @@ public class Cliente {
      * todos los seguros a su nombre
      */
     public double totalSeguros() {
-        return 0;
+        Iterator <Seguro> it = seguros.iterator();
+        double precio = 0.0;
+        while (it.hasNext()) {
+            precio += it.next().precio(this);
+        }
+        return precio;
     }
 
+    public boolean buscaSeguro(Seguro s) {
+        Iterator <Seguro> it = seguros.iterator();
+        while (it.hasNext()) {
+            if (it.next().equals(s)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
