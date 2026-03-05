@@ -5,6 +5,9 @@ package es.unican.is2;
  * seguros de la empresa de seguros
  */
 public class GestionSeguros implements IGestionSeguros, IInfoSeguros, IGestionClientes{
+
+	IClientesDAO daoClientes;
+	ISegurosDAO  daoSeguros;
     
     /**
 	 * Agrega un nuevo seguro al cliente cuyo dni se indica.
@@ -17,7 +20,17 @@ public class GestionSeguros implements IGestionSeguros, IInfoSeguros, IGestionCl
 	 * en el acceso a la base de datos
 	 */
     public Seguro nuevoSeguro(Seguro s, String dni) throws OperacionNoValida, DataAccessException {
-        return null;
+		Cliente c = 
+		if (c == null) {
+			throw new DataAccesException();
+		}
+		boolean seguroEncontrado = c.buscaSeguro(s);
+		if (seguroEncontrado) {
+			throw new OperacionNoValida();
+		}
+		c.anhadeSeguro(s);
+	
+        return s;
     }
 
     /**

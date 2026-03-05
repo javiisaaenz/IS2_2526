@@ -1,4 +1,4 @@
-
+package es.unican.is2;
 
 import java.time.LocalDate;
 
@@ -120,7 +120,7 @@ public class Seguro {
        		return 0.0;
    	 	}
     
-    	double precio;
+    	double precio = 0.0;
 		//precio segun la cobertura
     	switch (cobertura) {
       	  	case TERCEROS:
@@ -132,8 +132,6 @@ public class Seguro {
         	case TODO_RIESGO:
             	precio = 1000.0;
             	break;
-        	default:
-            	precio = 0.0;
    		 }
 		//aumento segun la potencia del coche
 		double mult = 1.0;
@@ -150,9 +148,9 @@ public class Seguro {
 		}
 		double precioTotal = precio * mult;	
 		if (c.getMinusvalia()) {
-			return (precio*mult)* 0.75;
+			return (precioTotal)* 0.75;
 		}
-		return precio * mult;
+		return precioTotal;
 	}
 
 	

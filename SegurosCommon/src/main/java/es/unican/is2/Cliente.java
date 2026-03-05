@@ -1,6 +1,9 @@
+package es.unican.is2;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+
+
 
 /**
  * Clase que representa un cliente de la empresa de seguros
@@ -84,6 +87,10 @@ public class Cliente {
             precio += it.next().precio(this);
         }
         return precio;
+    }
+
+    public void anhadeSeguro (Seguro s) {
+        seguros.add(s);
     }
 
     public boolean buscaSeguro(Seguro s) {
