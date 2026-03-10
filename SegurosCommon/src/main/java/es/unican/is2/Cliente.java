@@ -1,4 +1,5 @@
 package es.unican.is2;
+
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -17,7 +18,7 @@ public class Cliente {
     
     private boolean minusvalia;
 
-    private List<Seguro> seguros = new LinkedList<Seguro>();
+    private List<Seguro> seguros = new LinkedList<>();
     
 	/**
      * Retorna los seguros del cliente 
@@ -89,17 +90,23 @@ public class Cliente {
         return precio;
     }
 
-    public void anhadeSeguro (Seguro s) {
+    public void anhadeSeguro(Seguro s) {
         seguros.add(s);
     }
-
-    public boolean buscaSeguro(Seguro s) {
-        Iterator <Seguro> it = seguros.iterator();
+    
+    public void eliminaSeguro (Seguro s) {
+        seguros.remove(s);
+    }
+    
+    public Seguro buscaSeguro(String matricula) {
+        Iterator<Seguro> it = seguros.iterator();
+        Seguro seguro;
         while (it.hasNext()) {
-            if (it.next().equals(s)) {
-                return true;
+            seguro = it.next();
+            if (seguro.getMatricula().equals(matricula)) {
+                return seguro;
             }
         }
-        return false;
+        return null;
     }
 }
