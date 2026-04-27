@@ -1,0 +1,112 @@
+package es.unican.is2;
+
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+
+
+
+/**
+ * Clase que representa un cliente de la empresa de seguros
+ * Un cliente se identifica por su dni
+ */
+public class Cliente {
+
+    private String dni;
+
+    private String nombre;  
+    
+    private boolean minusvalia;
+
+    private List<Seguro> seguros = new LinkedList<>();
+    
+	/**
+     * Retorna los seguros del cliente 
+     */
+    public List<Seguro> getSeguros() {
+        return seguros;
+    }
+    
+    /**
+     * Asigna la lista de seguros
+     */
+    public void setSeguros(List<Seguro> seguros) {
+        this.seguros = seguros;
+    }
+
+    /**
+     * Retorna el nombre del cliente.   
+     */
+    public String getNombre() {
+        return nombre;
+    }
+
+    /**
+     * Asigna el nombre del cliente
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    /**
+     * Retorna el dni del cliente.
+     */
+    public String getDni() {
+        return dni;
+    }
+
+    /**
+     * Asigna el dni del cliente
+     * @param dni
+     */
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+    
+    /**
+     * Indica si el cliente es minusvalido
+     */
+    public boolean getMinusvalia() {
+    	return minusvalia;
+    }
+
+    /**
+     * Asigna la minusvalia del cliente
+     * @param minusvalia
+     */
+     public void setMinusvalia(boolean minusvalia) {
+        this.minusvalia = minusvalia;
+    }
+    
+    /**
+     * Calcula el total a pagar por el cliente por 
+     * todos los seguros a su nombre
+     */
+    public double totalSeguros() {
+        Iterator <Seguro> it = seguros.iterator();
+        double precio = 0.0;
+        while (it.hasNext()) {
+            precio += it.next().precio(this);
+        }
+        return precio;
+    }
+
+    public void anhadeSeguro(Seguro s) {
+        seguros.add(s);
+    }
+    
+    public void eliminaSeguro (Seguro s) {
+        seguros.remove(s);
+    }
+    
+    public Seguro buscaSeguro(String matricula) {
+        Iterator<Seguro> it = seguros.iterator();
+        Seguro seguro;
+        while (it.hasNext()) {
+            seguro = it.next();
+            if (seguro.getMatricula().equals(matricula)) {
+                return seguro;
+            }
+        }
+        return null;
+    }
+}

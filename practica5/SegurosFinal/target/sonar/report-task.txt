@@ -1,0 +1,6 @@
+projectKey=practica3_review
+serverUrl=http://localhost:9000
+serverVersion=26.1.0.118079
+dashboardUrl=http://localhost:9000/dashboard?id=practica3_review
+ceTaskId=61aef79b-b704-4420-9238-55ebfd2e5518
+ceTaskUrl=http://localhost:9000/api/ce/task?id=61aef79b-b704-4420-9238-55ebfd2e5518
