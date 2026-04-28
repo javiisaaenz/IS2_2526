@@ -25,13 +25,14 @@ public class ClientesDAO implements IClientesDAO {
 	public Cliente cliente(String dni) throws DataAccessException {
 		Cliente result = null; 
 		Connection con = H2ServerConnectionManager.getConnection();
+		System.out.println("DNI: " + dni);
+		//String statementText = "select * from Clientes where trim(dni) = trim('" + dni + "')";
 		String statementText = "select * from Clientes where dni = '" + dni + "'";
-		
+		//String statementText = "select * from Clientes";
 		try (Statement statement = con.createStatement();
 			ResultSet results = statement.executeQuery(statementText);){
-			
-			if (results.next()) { 
-				result = procesaCliente(con,results);
+			if (results.next()) {
+				result = procesaCliente(con, results);
 			}
 			statement.close(); 
 		}

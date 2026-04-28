@@ -1,22 +1,19 @@
 package es.unican.is2;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.DefaultListModel;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-
-import javax.swing.JList;
-import javax.swing.border.LineBorder;
-
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.WindowConstants;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 
 @SuppressWarnings("serial")
 public class VistaAgente extends JFrame {
@@ -69,6 +66,7 @@ public class VistaAgente extends JFrame {
 		contentPane.add(listSeguros);
 		listSeguros.setBorder(new LineBorder(new Color(0, 0, 0)));
 		listSeguros.setModel(listModel);
+		listSeguros.setName("listSeguros");
 		
 		JLabel lblSeguros = new JLabel("Seguros");
 		lblSeguros.setBounds(149, 93, 65, 14);
@@ -102,12 +100,14 @@ public class VistaAgente extends JFrame {
 		btnBuscar = new JButton("Buscar");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				rellenaDatosCliente(txtNombreCliente.getText());
+				System.out.println("Click");
+				rellenaDatosCliente(txtDniCliente.getText());
 			}
 		});
 		btnBuscar.setBounds(21, 122, 89, 23);
 		contentPane.add(btnBuscar);
 		btnBuscar.setName("btnBuscar");
+
 		listSeguros.setVisible(true);
 	}
 

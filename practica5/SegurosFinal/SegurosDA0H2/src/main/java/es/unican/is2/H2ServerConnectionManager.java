@@ -28,15 +28,16 @@ public class H2ServerConnectionManager {
 	 */
 	public static Connection getConnection() throws DataAccessException {
 
-		if (connection == null) { 
+		if (connection == null) {
 			try {
 				Class.forName("org.h2.Driver"); //comprueba que el driver esta instalado
-				connection = DriverManager.getConnection("jdbc:h2:mem:test", "sa","");		
+				connection = DriverManager.getConnection("jdbc:h2:mem:test", "sa", "");
 				cargaDatos();
 			} catch (SQLException | ClassNotFoundException e) {
 				throw new DataAccessException();
 			}
 		}
+		//new Throwable("DEBUG: ¿Quién me llama?").printStackTrace();
 		return connection;
 	}
 
@@ -45,7 +46,7 @@ public class H2ServerConnectionManager {
 	 * @throws DataAccessException Si hay un fallo en la conexion
 	 */
 	public static void cargaDatos() throws DataAccessException {
-					Connection con = getConnection();
+		Connection con = getConnection();
 		try (Statement stm = con.createStatement()){
 			// Creacion de la tabla Clientes
 			String sql= "CREATE TABLE Clientes (dni CHAR(9) NOT NULL, nombre VARCHAR(100) NOT NULL, "
@@ -90,7 +91,8 @@ public class H2ServerConnectionManager {
 			sql = "INSERT INTO Seguros (matricula, fechaInicio, cobertura, potencia, cliente_FK) "
 					+ "VALUES ('4444BBB', '2024-01-02', 'TERCEROS_LUNAS', 300, '44444444A')";
 			stm.executeUpdate(sql);
-			
+
+			System.out.println("CHECKLOAD");
 		} catch (SQLException e) {
 			System.out.println(e);
 			throw new DataAccessException();
